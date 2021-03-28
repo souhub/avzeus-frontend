@@ -1,0 +1,7 @@
+/* 全体に適用するCSS */
+html{
+    background-color: purple;
+}
+h2,p{
+    color: #fff;
+}
