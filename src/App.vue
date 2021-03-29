@@ -5,7 +5,6 @@
       <router-view></router-view>
     </div>
     <Footer></Footer>
-    <!-- {{wemen}} -->
   </div>
 </template>
 

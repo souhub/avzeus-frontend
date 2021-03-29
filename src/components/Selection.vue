@@ -9,15 +9,23 @@
          </div>
          <img id="zeus" src="img/zeus.png" alt="zeus">
       </div>
-      <a class="btn" href="/recommendation">人選んで次へ</a>
-      <button class="btn" onclick="history.back()" style="width:100%; background-color: gray">戻る</button>
-      <form action="" >
-         <div class="box">
-            <div class="child" v-for="(woman,index) in this.$root.wemen" :key=index>
-               <input type="checkbox" name="selected_woman" :value="index"><img class="child-img" :src="woman.image_path" alt="女性の画像">
+
+         <form action="/select" method="post">
+            <div class="box">
+               <div class="child" v-for="(woman,index) in this.$root.wemen" :key=index>
+                  <label :for=index>
+                     <input type="checkbox" :id=index name="selected_woman" :value=index>
+                     <img class="child-img" :src="woman.image_path" alt="女性の画像">
+                  </label>
+               </div>
             </div>
-         </div>
-      </form>
+         </form>
+
+      <div class="btns">
+         <a class="btn" href="/recommendation">人選んで次へ</a>
+         <button class="btn" onclick="history.back()" style="width:100%; background-color: gray">戻る</button>
+      </div>
+
    </div>
 </template>
 
@@ -28,14 +36,15 @@
 .box {
   display: flex;
   flex-wrap: wrap;
-  height: 400px;
   align-content: flex-start;
+  text-align: center;
 }
 .child{
-   width: 30%;
+   width: 33%;
 }
 
 .child-img{
    width: 100%;
+   max-width: 200px;
 }
 </style>
