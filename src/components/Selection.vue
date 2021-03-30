@@ -14,7 +14,7 @@
             <div class="box">
                <div class="child" v-for="(woman,index) in this.$root.wemen" :key=index>
                   <input type="checkbox" :id=index name="selected_woman" :value=index v-model="selectedWemen">
-                  <span class="index">{{index}}</span>
+                  <p class="index">{{index}}</p>
                   <label class="check-box" :for=index>
                      <img class="child-img" :src="woman.image_path" alt="女性の画像">
                   </label>
@@ -76,6 +76,10 @@ export default{
 .child-img{
    width: 100%;
    max-width: 200px;
+}
+
+.index{
+   line-height: 0;
 }
 
 input[type="checkbox"]{
