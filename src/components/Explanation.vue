@@ -16,16 +16,6 @@
 </div>
 </template>
 
-// <script>
-// export default {
-//   props:{
-//      ewemen:{
-//         type: Array,
-//         require: true
-//      }
-//   }
-// }
-// </script>
 <script>
 export default {
   props: {

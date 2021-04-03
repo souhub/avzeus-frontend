@@ -50,10 +50,6 @@
       </div>
     </div>
 
-    <!-- <p id="std">
-         <i id="like" class="fas fa-heart"><i id="dislike" class="fas fa-heart-broken"></i><br/>
-         <span>{{selectedWemen}}</span>
-      </p> -->
 
     <!-- 本物のフォーム（隠しフォーム） -->
     <form action="http://localhost:8000/selection" method="POST">

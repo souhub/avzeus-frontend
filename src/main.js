@@ -11,7 +11,8 @@ new Vue({
   data(){
     return{
       wemen: Array,
-      actresses: Array
+      actresses: Array,
+      recommendedActresses: Array
     }
   },
   methods:{
@@ -28,11 +29,23 @@ new Vue({
         .then(response=>{this.actresses=response.data})
         .catch((err)=>{console.log(err)})
         .finally(() => this.loading = false)
+    },
+    fetchRecommendedActresses(){
+      this.axios
+        .get('http://localhost:8000/recommendation',{
+          params:{
+            ids: this.$route.query.ids
+          }
+        })
+        .then(response=>{this.recommendedActresses=response.data})
+        .catch((err)=>{console.log(err)})
+        .finally(()=>this.loading=false)
     }
   },
   created(){
     this.fetchActresses()
     this.fetchWemen()
+    this.fetchRecommendedActresses()
   },
   render: h => h(App),
   router
