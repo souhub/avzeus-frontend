@@ -9,7 +9,6 @@ services:
     image: avzeus-backend_dev:1.3
     depends_on:
       - mysql
-      - frontend
     ports:
       - "8000:8000"
 
@@ -26,5 +25,7 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     tty: true
+    depends_on:
+      - ai
     ports:
       - "8080:8080"

@@ -52,7 +52,7 @@
 
 
     <!-- 本物のフォーム（隠しフォーム） -->
-    <form action="http://localhost:8000/selection" method="POST">
+    <form action="http://localhost:8080/selection" method="POST">
       <div class="btns">
         <button v-if="selectedWemen.length == 5" class="btn" type="submit">
           <span v-if="selectedWemen.length == 5">結果を見る</span>
