@@ -18,6 +18,7 @@ COPY . .
 # 本番向けに圧縮しながらアプリケーションをビルドする
 RUN npm run build
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD [ "http-server", "dist" ]
+# CMD [ "npm", "run", "serve" ]

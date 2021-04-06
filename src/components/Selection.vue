@@ -14,6 +14,11 @@
         >
           5人以上選んでいるぞい！かわいい順に5人選び直すのじゃ！
         </p>
+        <p v-else-if="selectedWemen.length === 5">
+          <span style="font-weight:bold; font-size:20px; color:#5ae099">
+            5人ピッタリじゃ！結果を見るボタンで結果を確認するんじゃ！
+          </span>
+        </p>
         <p v-else>
           <span style="font-weight:bold; font-size:20px">{{
             selectedWemen.length
@@ -43,7 +48,7 @@
           :value="index"
           v-model="selectedWemen"
         />
-        <p class="index">{{ index }}</p>
+        <p class="index">{{ woman.name }}</p>
         <label class="check-box" :for="index">
           <img class="child-img" :src="woman.image_path" alt="女性の画像" />
         </label>
@@ -52,9 +57,9 @@
 
 
     <!-- 本物のフォーム（隠しフォーム） -->
-    <form action="http://localhost:8080/selection" method="POST">
+    <form action="/recommendation" method="GET">
       <div class="btns">
-        <button v-if="selectedWemen.length == 5" class="btn" type="submit">
+        <button v-if="selectedWemen.length == 5" class="btn" type="submit" style="width:100%">
           <span v-if="selectedWemen.length == 5">結果を見る</span>
         </button>
         <a
@@ -62,12 +67,12 @@
           class="btn"
           style="background-color:#34b871"
         >
-          <span v-if="selectedWemen.length < 5"
-            >あと{{ 5 - selectedWemen.length }}人選ぶのじゃ！</span
-          >
-          <span v-else-if="selectedWemen.length > 5"
-            >選び過ぎじゃ！5人選ぶのじゃ</span
-          >
+          <span v-if="selectedWemen.length < 5">
+            あと{{ 5 - selectedWemen.length }}人選ぶのじゃ！
+          </span>
+          <span v-else-if="selectedWemen.length > 5">
+            選び過ぎじゃ！5人選ぶのじゃ
+          </span>
         </a>
         <input
           class="btn"
@@ -76,15 +81,15 @@
           value="選びなおす"
           style="background-color:#FFCC00; width:100%"
         />
-        <button
+        <a
           class="btn"
-          onclick="history.back()"
-          style="background-color: gray; width:100%"
+          href="/explanation"
+          style="background-color:gray"
         >
           戻る
-        </button>
+        </a>
       </div>
-      <input type="hidden" name="selected_wemen" :value="selectedWemen" />
+      <input type="hidden" name="selected_wemen_ids" :value="selectedWemen" />
     </form>
   </div>
 </template>
@@ -140,6 +145,7 @@ export default {
 
 .index {
   line-height: 0;
+  font-size: 15px;
 }
 
 input[type="checkbox"] {

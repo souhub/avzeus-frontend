@@ -1,7 +1,7 @@
 <template>
     <div>
       <div id="about-btn-wrapper">
-        <a id="about-btn" href="/about">このサイトについて</a>
+        <a id="about-btn" href="/about" style="text-decoration: underline">このサイトについて</a>
       </div>
         <div id="top">
           <h2 id="top-title">AV Zeus</h2>

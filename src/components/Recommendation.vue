@@ -5,48 +5,64 @@
             <p>
                全知全能のワシが分析したお主に最適のAVはこれじゃ！！
             </p>
+            <p>上からおすすめ順に並べたぞい！</p>
+            <p>DMMに飛べるようにしてあるから楽しんでおくれい！</p>
          </div>
          <img id="zeus" src="img/zeus.png" alt="zeus">
       </div>
       <div>
-      <form action="localhost:8000/result" method-="POST">
-        <div v-for="(actress,index) in this.$root.recommendedActresses" :key=index>
-        <a type="submit" :href="getDMMURL($root.recommendedActresses.name)">
-            <input type="hidden" name="id" :value="this.$route.query.id">
-            <img :src="actress.image_path" alt="女優の画像">
-         </a>
-         </div>
-
-      <!-- テスト -->
-      <p>AIに返すTraining用ID<br/> {{this.$route.query.id}}</p>
-      <p>レコメンドされた女優のids: <br/>
-      <span style="word-break:break-all">{{this.$route.query.ids}}</span>
-      </p>
-      <p>states<br/>
-      <span style="word-break:break-all">{{this.$route.query.states}}</span>
-      </p>
-      <p>epsilons<br/>
-      <span style="word-break:break-all">{{this.$route.query.epsilons}}</span>
-      </p>
-      <!-- ここまでテスト -->
-
-      </form>
+         <form action="localhost:8000/result" method-="POST">
+            <div v-for="(actress,index) in this.recommendedActresses" :key=index style="text-align:center">
+               <p>
+                  <a :href="getDMMURL(actress.name)" target="_blank">
+                     {{actress.name}}
+                  </a>
+               </p>
+            </div>
+         </form>
       </div>
       <a class="btn" href="/">ありがとうございました！</a>
    </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
    data(){
       return{
-         dmmURL: String
+         dmmURL: String,
+         selectedWemenIDs: this.$route.query.selected_wemen_ids,
+         recommendedActresses: Array,
+
       };
    },
    methods:{
-      getDMMURL:function(name){
+    fetchRecommendedActresses(){
+      axios
+        .get('http://localhost:8000/recommendation',{
+          params:{
+            // selected_wemen_ids:'1,2,3,4,5'
+            selected_wemen_ids:this.selectedWemenIDs
+          }
+        })
+        .then(response=>{this.recommendedActresses=response.data})
+        .catch((err)=>{console.log(err)})
+        .finally(()=>this.loading=false)
+    },
+     getDMMURL(name){
          return this.dmmURL='https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr='+name
-      }
+    }
+   },
+   created(){
+      this.fetchRecommendedActresses()
    }
 };
 </script>
+
+<style scoped>
+   a{
+      text-decoration: underline;
+      margin-bottom: 10px;
+   }
+</style>

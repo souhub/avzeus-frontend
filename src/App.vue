@@ -27,8 +27,15 @@ html {
   background-color: purple;
 }
 
-h2,
-p {
+a[target="_blank"]::after{
+  font-family: "Font Awesome 5 Free";
+  content: '\f360';
+  font-size: 70%;
+  font-weight: 900;
+  margin: 0 3px;
+}
+
+h2,p {
   color: #fff;
 }
 a {
