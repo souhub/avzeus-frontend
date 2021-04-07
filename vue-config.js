@@ -1,4 +1,4 @@
 module.exports = {
-    publicPath: '/avzeus-frontend/',
+    publicPath: './',
     outputDir: 'docs'
   }
