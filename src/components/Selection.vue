@@ -29,7 +29,7 @@
           >人選択するのじゃ。
         </p>
       </div>
-      <img id="zeus" src="img/zeus.png" alt="zeus" />
+      <img id="zeus" src="https://storage.googleapis.com/avzeus/zeus.png" alt="zeus" />
     </div>
 
     <!-- checkbox だと配列の順番がランダムで変わるので隠しフォームで送信する -->

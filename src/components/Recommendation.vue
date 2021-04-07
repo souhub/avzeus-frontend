@@ -8,7 +8,7 @@
             <p>上からおすすめ順に並べたぞい！</p>
             <p>DMMに飛べるようにしてあるから楽しんでおくれい！</p>
          </div>
-         <img id="zeus" src="img/zeus.png" alt="zeus">
+         <img id="zeus" src="https://storage.googleapis.com/avzeus/zeus.png" alt="zeus">
       </div>
       <div>
          <form action="localhost:8000/result" method-="POST">
@@ -40,7 +40,7 @@ export default {
    methods:{
     fetchRecommendedActresses(){
       axios
-        .get('http://localhost:8000/recommendation',{
+        .get('https://avzeus-api.mmu6fa6rgrojg.ap-northeast-1.cs.amazonlightsail.com/recommendation',{
           params:{
             // selected_wemen_ids:'1,2,3,4,5'
             selected_wemen_ids:this.selectedWemenIDs

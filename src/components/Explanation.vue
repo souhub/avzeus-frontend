@@ -8,7 +8,7 @@
             ではさっそく始めていくぞ。
          </p>
       </div>
-      <img id="zeus" src="img/zeus.png" alt="zeus">
+      <img id="zeus" src="https://storage.googleapis.com/avzeus/zeus.png" alt="zeus">
    </div>
    <p>{{ user_code }}</p>
    <a class="btn" href="/selection">よろしこお願いします！</a>
