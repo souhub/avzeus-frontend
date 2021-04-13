@@ -6860,6 +6860,11 @@
   dependencies:
     "picomatch" "^2.2.1"
 
+"reflect-metadata@^0.1.10":
+  "integrity" "sha512-Ts1Y/anZELhSsjMcU605fU9RE4Oi3p5ORujwbIKXfWa+0Zxs510Qrmrce5/Jowq3cHSZSJqBjypxmHarc+vEWg=="
+  "resolved" "https://registry.npmjs.org/reflect-metadata/-/reflect-metadata-0.1.13.tgz"
+  "version" "0.1.13"
+
 "regenerate-unicode-properties@^8.2.0":
   "integrity" "sha1-5d5xEdZV57pgwFfb6f83yH5lzew="
   "resolved" "https://registry.npm.taobao.org/regenerate-unicode-properties/download/regenerate-unicode-properties-8.2.0.tgz"
@@ -8305,6 +8310,11 @@
   "resolved" "https://registry.npmjs.org/vue-axios/-/vue-axios-3.2.4.tgz"
   "version" "3.2.4"
 
+"vue-class-component@^6.0.0", "vue-class-component@^6.1.0":
+  "integrity" "sha512-cH208IoM+jgZyEf/g7mnFyofwPDJTM/QvBNhYMjqGB8fCsRyTf68rH2ISw/G20tJv+5mIThQ3upKwoL4jLTr1A=="
+  "resolved" "https://registry.npmjs.org/vue-class-component/-/vue-class-component-6.3.2.tgz"
+  "version" "6.3.2"
+
 "vue-eslint-parser@^7.0.0":
   "integrity" "sha1-AeoaKTL1gf8kQzZWXXEoAfj3JWE="
   "resolved" "https://registry.npm.taobao.org/vue-eslint-parser/download/vue-eslint-parser-7.6.0.tgz?cache=0&sync_timestamp=1614679716186&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue-eslint-parser%2Fdownload%2Fvue-eslint-parser-7.6.0.tgz"
@@ -8342,6 +8352,23 @@
     "vue-hot-reload-api" "^2.3.0"
     "vue-style-loader" "^4.1.0"
 
+"vue-loading-template@^1.3.2":
+  "integrity" "sha512-p02Q0cIkGlYSd2B++9JkRnSi4vzbIy3Pd7HOPncFCT5sgXin0clJFCvO8+KqF3JYP+coR8BjMqFEjOJY20jKYA=="
+  "resolved" "https://registry.npmjs.org/vue-loading-template/-/vue-loading-template-1.3.2.tgz"
+  "version" "1.3.2"
+  dependencies:
+    "vue" "^2.5.16"
+    "vue-class-component" "^6.0.0"
+    "vue-property-decorator" "^6.0.0"
+
+"vue-property-decorator@^6.0.0":
+  "integrity" "sha512-NM4PYPOkOIO7SFtWiQqVrbp+ORzd7CJXcIz0X710PNW9pxGfbil0/x/ULFympzIUoHXBKN2dqoOQzh6oeMzpTQ=="
+  "resolved" "https://registry.npmjs.org/vue-property-decorator/-/vue-property-decorator-6.1.0.tgz"
+  "version" "6.1.0"
+  dependencies:
+    "reflect-metadata" "^0.1.10"
+    "vue-class-component" "^6.1.0"
+
 "vue-router@^3.5.1":
   "integrity" "sha512-RRQNLT8Mzr8z7eL4p7BtKvRaTSGdCbTy2+Mm5HTJvLGYSSeG9gDzNasJPP/yOYKLy+/cLG/ftrqq5fvkFwBJEw=="
   "resolved" "https://registry.npmjs.org/vue-router/-/vue-router-3.5.1.tgz"
@@ -8368,7 +8395,7 @@
   "resolved" "https://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz"
   "version" "1.9.1"
 
-"vue@^ 3.0.0 || ^ 2.0.0", "vue@^2 || ^3.0.0-0", "vue@^2.6.11":
+"vue@^ 3.0.0 || ^ 2.0.0", "vue@^2 || ^3.0.0-0", "vue@^2.5.16", "vue@^2.6.11":
   "integrity" "sha1-9evU+mvShpQD4pqJau1JBEVskSM="
   "resolved" "https://registry.npm.taobao.org/vue/download/vue-2.6.12.tgz?cache=0&sync_timestamp=1616859645560&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fvue%2Fdownload%2Fvue-2.6.12.tgz"
   "version" "2.6.12"

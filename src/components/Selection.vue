@@ -35,10 +35,11 @@
     <!-- checkbox だと配列の順番がランダムで変わるので隠しフォームで送信する -->
 
     <!-- ダミーフォーム -->
-    <div class="box">
+    <vue-loading v-if="loading" type="spiningDubbles" color="#333" :size="{ width: '150px', height: '150px' }"></vue-loading>
+    <div v-if="!loading" class="box">
       <div
         class="child"
-        v-for="(woman, index) in this.$root.wemen"
+        v-for="(woman, index) in wemen"
         :key="index"
       >
         <input
@@ -95,16 +96,37 @@
 </template>
 
 <script scoped>
+import axios from 'axios'
+import { VueLoading } from 'vue-loading-template'
+
 export default {
   data() {
     return {
+      wemen: Array,
       selectedWemen: [],
+      loading: true
     };
   },
   methods: {
     reset: function() {
       this.selectedWemen = [];
     },
+    fetchWemen(){
+      axios
+        .get('http://localhost:8000/api/wemen')
+        .then(response=>{
+          this.wemen=response.data,
+          this.loading=true
+          })
+        .catch((err)=>{console.log(err)})
+        .finally(() => this.loading = false)
+      }
+    },
+  created(){
+    this.fetchWemen()
+  },
+  components: {
+    VueLoading
   },
 };
 </script>
