@@ -42,12 +42,10 @@ export default {
    methods:{
     fetchRecommendedData(){
       axios
-        .get('http://localhost:8000/api/recommendation',{
-          params:{
+        .post('http://localhost:8000/api/recommendation',{
             // selected_wemen_ids:'1,2,3,4,5'
             selected_wemen_ids:this.selectedWemenIDs
-          }
-        })
+          })
         .then(response=>{
            this.recommendedData=response.data,
            this.loading=false})
