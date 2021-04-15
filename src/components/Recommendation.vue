@@ -42,7 +42,7 @@ export default {
    methods:{
     fetchRecommendedData(){
       axios
-        .post('http://localhost:8000/api/recommendation',{
+        .post('/api/recommendation',{
             // selected_wemen_ids:'1,2,3,4,5'
             selected_wemen_ids:this.selectedWemenIDs
           })
@@ -57,7 +57,7 @@ export default {
     },
     postResult(val,trainingID){
       axios
-         .post('http://localhost:8000/api/result',{
+         .post('/api/result',{
             val: val, // 押された女優ID
             training_id: trainingID
          })

@@ -113,7 +113,7 @@ export default {
     },
     fetchWemen(){
       axios
-        .get('http://localhost:8000/api/wemen')
+        .get('/api/wemen')
         .then(response=>{
           this.wemen=response.data,
           this.loading=true

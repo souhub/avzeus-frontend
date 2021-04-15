@@ -4,6 +4,8 @@ WORKDIR /avzeus-frontend
 COPY package*.json ./
 RUN npm install
 COPY . .
+# APIのパス指定
+ENV VUE_APP_API_ENDPOINT https://avzeus-api-test.mmu6fa6rgrojg.ap-northeast-1.cs.amazonlightsail.com
 RUN npm run build
 
 # 本番環境
