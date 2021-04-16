@@ -21,8 +21,8 @@
       <vue-loading v-if="loading" type="spiningDubbles" color="white" :size="{ width: '150px', height: '150px' }"></vue-loading>
       <div v-if="!loading">
          <div v-for="(actress,index) in recommendedActresses" :key=index style="text-align:center">
-            <img :src="actress.image_path" :alt="actress.name">
-            <p>{{actress.name}}</p>
+            <img class="actress-img" :src="actress.image_path" :alt="actress.name">
+            <p class="actress-name">{{actress.name}}</p>
             <ul>
                <li><a :href="actress.list_url.Digital" target="_blank" v-on:click="postResult(actress.id,trainingID)">動画</a></li>
                <li><a :href="actress.list_url.Monthly" target="_blank" v-on:click="postResult(actress.id,trainingID)">月額動画 見放題chプレミアム</a></li>
@@ -60,7 +60,8 @@ export default {
         .then(response=>{
            this.trainingID=response.data.training_id,
            this.recommendedActresses=response.data.recommended_actresses,
-           this.loading=false})
+           this.loading=false
+           })
         .catch((err)=>{console.log(err)})
         .finally(()=>this.loading=false)
     },
@@ -89,5 +90,12 @@ export default {
    a{
       text-decoration: underline;
       margin-bottom: 10px;
+   }
+   .actress-img{
+      width:250px;
+      border-radius:50%
+   }
+   .actress-name{
+      font-size: 30px;
    }
 </style>

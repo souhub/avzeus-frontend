@@ -1,10 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/components/Index'
-import explanation from '@/components/Explanation'
+import introduction from '@/components/Introduction'
+import selectionExplanation from '@/components/SelectionExplanation'
 import selection from '@/components/Selection'
 import recommendation from '@/components/Recommendation'
 import about from '@/components/About'
+import imageUploader from '@/components/ImageUploader'
+import imageExplanation from '@/components/ImageExplanation'
 
 Vue.use(Router)
 
@@ -18,8 +21,12 @@ export default new Router({
           component: index
         },
       {
-        path: '/explanation',
-        component: explanation,
+        path: '/introduction',
+        component: introduction,
+      },
+      {
+        path: '/selection-explanation',
+        component: selectionExplanation,
       },
       {
         path: '/selection',
@@ -32,6 +39,14 @@ export default new Router({
       {
         path:'/about',
         component: about
+      },
+      {
+        path: '/image-explanation',
+        component: imageExplanation
+      },
+      {
+        path: '/image-uploader',
+        component: imageUploader
       }
     ]
   })

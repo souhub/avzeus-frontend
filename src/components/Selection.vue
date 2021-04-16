@@ -82,16 +82,10 @@
           value="選びなおす"
           style="background-color:#FFCC00; width:100%"
         />
-        <a
-          class="btn"
-          href="/explanation"
-          style="background-color:gray"
-        >
-          戻る
-        </a>
       </div>
       <input type="hidden" name="selected_wemen_ids" :value="selectedWemen" />
     </form>
+    <button class="btn btn-back" onclick="history.back()">もう一度説明を聞く</button>
   </div>
 </template>
 

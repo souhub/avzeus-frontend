@@ -12,7 +12,7 @@
           </p>
         </div>
         <img id="zeus" src="https://storage.googleapis.com/avzeus/zeus.png" alt="zeus">
-        <a href="/explanation" class="btn"><span style="font-family: Montserrat; font-size:30px">AV Zeus</span> に相談する</a>
+        <a href="/introduction" class="btn"><span style="font-family: Montserrat; font-size:30px">AV Zeus</span> に相談する</a>
     </div>
 </template>
 

@@ -65,6 +65,11 @@ a {
   font-weight: bold;
 }
 
+.btn-back{
+  width:100%;
+  background-color: gray
+}
+
 #zeus {
   width: 70px;
   display: block;
