@@ -1,5 +1,9 @@
-// module.exports = {
-//   publicPath: process.env.NODE_ENV === 'production'
-//     ? '/avzeus-frontend/'
-//     : '/',
-// }
+module.exports = {
+    devServer: {
+        proxy: {
+            "/api": {
+                target: "http://localhost:8000",
+            },
+        },
+    },
+}

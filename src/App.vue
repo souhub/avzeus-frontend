@@ -35,9 +35,14 @@ a[target="_blank"]::after{
   margin: 0 3px;
 }
 
+li {
+  list-style-type: none;
+}
+
 h2,p {
   color: #fff;
 }
+
 a {
   text-decoration: none;
   color: #fff;

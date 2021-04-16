@@ -2,26 +2,36 @@
    <div>
       <div id="fukidashi-wrapper">
          <div id="fukidashi">
-            <p>
-               全知全能のワシが分析したお主に最適のAVはこれじゃ！！
-            </p>
-            <p>上からおすすめ順に並べたぞい！</p>
-            <p>DMMに飛べるようにしてあるから楽しんでおくれい！</p>
+            <div v-if="loading">
+               <p>お主好みの女優を計算中じゃ！</p>
+               <p>もうしばらく待っておくれい！</p>
+            </div>
+            <div v-if="!loading">
+               <p>全知全能のワシが分析したお主に最適のAV女優はこの娘らじゃ！！</p>
+               <p>上からおすすめ順に並べたぞい！</p>
+               <p>FANZAに飛べるようにしてあるから楽しんでおくれい！</p>
+            </div>
          </div>
          <img id="zeus" src="https://storage.googleapis.com/avzeus/zeus.png" alt="zeus">
       </div>
+
+      <br/>
+      <br/>
+
       <vue-loading v-if="loading" type="spiningDubbles" color="white" :size="{ width: '150px', height: '150px' }"></vue-loading>
       <div v-if="!loading">
-         <!-- <form action="http://localhost:8000/api/result" method-="POST"> -->
-            <div v-for="(actress,index) in this.recommendedData.recommended_actresses" :key=index style="text-align:center">
-               <p>
-                  <a :href="getDMMURL(actress.name)" target="_blank" v-on:click="postResult(actress.id,recommendedData.id)">
-                     {{actress.name}}
-                  </a>
-               </p>
-            </div>
-         <!-- </form> -->
+         <div v-for="(actress,index) in recommendedActresses" :key=index style="text-align:center">
+            <img :src="actress.image_path" :alt="actress.name">
+            <p>{{actress.name}}</p>
+            <ul>
+               <li><a :href="actress.list_url.Digital" target="_blank" v-on:click="postResult(actress.id,trainingID)">動画</a></li>
+               <li><a :href="actress.list_url.Monthly" target="_blank" v-on:click="postResult(actress.id,trainingID)">月額動画 見放題chプレミアム</a></li>
+               <li><a :href="actress.list_url.Mono" target="_blank" v-on:click="postResult(actress.id,trainingID)">DVD通販</a></li>
+               <li><a :href="actress.list_url.Rental" target="_blank" v-on:click="postResult(actress.id,trainingID)">DVDレンタル</a></li>
+            </ul>
+         </div>
       </div>
+
       <a class="btn" href="/">ありがとうございました！</a>
    </div>
 </template>
@@ -35,8 +45,9 @@ export default {
       return{
          dmmURL: String,
          selectedWemenIDs: this.$route.query.selected_wemen_ids,
-         recommendedData: Array,
-         loading: true
+         recommendedActresses: Array,
+         loading: true,
+         trainingID: Number
       };
    },
    methods:{
@@ -47,13 +58,11 @@ export default {
             selected_wemen_ids:this.selectedWemenIDs
           })
         .then(response=>{
-           this.recommendedData=response.data,
+           this.trainingID=response.data.training_id,
+           this.recommendedActresses=response.data.recommended_actresses,
            this.loading=false})
         .catch((err)=>{console.log(err)})
         .finally(()=>this.loading=false)
-    },
-     getDMMURL(name){
-         return this.dmmURL='https://www.dmm.co.jp/digital/videoa/-/list/search/=/?searchstr='+name
     },
     postResult(val,trainingID){
       axios
